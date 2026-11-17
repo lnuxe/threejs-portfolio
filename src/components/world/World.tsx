@@ -13,6 +13,7 @@ const Projects = lazy(() => import("../projects/Projects"));
 const Lamps = lazy(() => import("../lamps/Lamps"));
 const Skills = lazy(() => import("../skills/Skills"));
 const About = lazy(() => import("../about/About"));
+const AgentShowcase = lazy(() => import("../agents/AgentShowcase"));
 
 const World: React.FC = () => {
   return (
@@ -32,6 +33,7 @@ const World: React.FC = () => {
         <About />
         <Game />
         <Projects />
+        <AgentShowcase />
         <Preload all />
       </Suspense>
     </>

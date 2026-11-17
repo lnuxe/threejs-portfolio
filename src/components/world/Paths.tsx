@@ -20,6 +20,8 @@ const PathMesh: React.FC = () => {
       <Path count={30} x={-140} start={7} />
       <Path count={30} x={-90} start={-25} />
       <Path count={20} x={-90} start={-48} />
+      {/* Path to the Valorant Agents showcase (leads north from center to z=-140) */}
+      <Path count={30} x={0} start={-120} />
     </>
   );
 };

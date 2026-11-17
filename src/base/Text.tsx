@@ -9,16 +9,19 @@ import {
 } from "@react-three/drei";
 import { DoubleSide } from "three";
 
-type BaseTextProps = ThreeElements["mesh"] & {
-  type?: "2d" | "3d";
-  textOptions?: Text3DProps | TextProps;
-};
+type BaseTextProps = ThreeElements["mesh"] &
+  Partial<TextProps> & {
+    type?: "2d" | "3d";
+    textOptions?: Text3DProps | TextProps;
+  };
 
 const BaseText: React.FC<BaseTextProps> = ({
   type = "2d",
   children,
   rotation = [0, Math.PI, 0],
   textOptions = { size: 1, height: 0.1, font: "/fonts/Roboto_Regular.json" },
+  fontSize,
+  color,
   ...props
 }) => {
   if (type === "3d") {
@@ -36,7 +39,14 @@ const BaseText: React.FC<BaseTextProps> = ({
 
   return (
     // @ts-expect-error - TextProps are not fully compatible with mesh props
-    <Text anchorX="left" anchorY="middle" rotation={rotation} {...props}>
+    <Text
+      anchorX="center"
+      anchorY="middle"
+      rotation={rotation}
+      fontSize={fontSize}
+      color={color}
+      {...props}
+    >
       {children}
     </Text>
   );

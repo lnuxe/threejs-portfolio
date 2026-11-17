@@ -10,7 +10,7 @@ import {
 import usePlayerMovement from "../../hooks/usePlayerMovement";
 import { useCollisionDetector } from "../../hooks/useCollisionDetector";
 import useMovementState, { KeyControls } from "../../hooks/useMovementState";
-import Character, { CharacterAnimationType } from "../../base/Character";
+import PlayerCharacter, { CharacterAnimationType } from "../../base/PlayerCharacter";
 import useDefaults from "../../hooks/useDefaults";
 
 const Player = () => {
@@ -57,7 +57,7 @@ const Player = () => {
       onIntersectionExit={handleCollisionExit as IntersectionExitHandler}
     >
       <CuboidCollider position={[0, 1, 0]} args={[1.5, 3, 1.5]} />
-      <Character
+      <PlayerCharacter
         ref={characterRef}
         position={[0, -1.75, 0]}
         scale={scale}
